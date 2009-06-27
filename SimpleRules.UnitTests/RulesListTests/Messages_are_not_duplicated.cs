@@ -5,10 +5,10 @@ using NUnit.Framework.SyntaxHelpers;
 using System.Collections.Generic;
 using SimpleRules.UnitTests.Model.HR;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
     [TestFixture]
-    public class Messages_are_not_duplicated : TestContext<RulesTestSpecs>
+    public class Messages_are_not_duplicated : TestContext<RulesListSpecs>
     {
         const string RULE_MESSAGE = "Terminate all hourly employees.";
 

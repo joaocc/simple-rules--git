@@ -4,12 +4,12 @@ using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RuleTests
 {
     [TestFixture]
-    public class When_rule_has_one_or_expression : TestContext<RulesTestSpecs>
+    public class When_rule_has_one_condition_and_one_action : TestContext<RuleSpecs>
     {
-        const string RULE_MESSAGE = "Order number must be 10 charactes long and contain no spaces";
+        const string RULE_MESSAGE = "Order must have at least one item.";
 
         protected override void SetupState()
         {
@@ -17,26 +17,31 @@ namespace SimpleRules.UnitTests
 
             Specs.Instance
                 .Add(RULE_MESSAGE)
-                    .When(o => o.Number.Length != 10)
-                        .Or(o => o.Number.Contains(' '))
+                    .When(o => o.Items.Count() == 0)
                     .Then(o => o.Status = OrderStatus.OnHold);
         }
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.RunRules("1234 67890", "123456789");
+            Specs.Instance.Evaluate(Specs.Order);
         }
 
         [Test]
-        public void Two_messages_exist()
+        public void Rule_list_contains_rule()
+        {
+            Assert.That(Specs.Instance.ContainsRule(RULE_MESSAGE));
+        }
+
+        [Test]
+        public void One_message_exists()
         {
             Assert.That(Specs.Instance.Messages.Count(), Is.EqualTo(1));
         }
 
         [Test]
-        public void All_messages_are_correct()
+        public void Message_is_correct()
         {
-            Assert.That(Specs.Instance.Messages.First(), Is.EqualTo(RULE_MESSAGE));
+            Assert.That(Specs.Instance.Messages.All(m => m == RULE_MESSAGE));
         }
 
         [Test]

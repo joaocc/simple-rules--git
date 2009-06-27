@@ -2,9 +2,9 @@
 using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
-    public class When_a_rule_is_removed_which_doesnt_exist : TestContext<RulesTestSpecs>
+    public class When_a_rule_is_removed_which_doesnt_exist : TestContext<RulesListSpecs>
     {
         const string RULE_MESSAGE = "bogus rule #1";
 

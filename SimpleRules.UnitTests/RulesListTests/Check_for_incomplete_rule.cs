@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
-    public class Check_for_incomplete_rule : TestContext<RulesTestSpecs>
+    public class Check_for_incomplete_rule : TestContext<RulesListSpecs>
     {
         IEnumerable<Rule<Order>> Rules { get; set; }
 
