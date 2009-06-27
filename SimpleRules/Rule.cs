@@ -34,10 +34,6 @@ namespace SimpleRules
 
         internal bool IsComplete()
         {
-            if (Message == null)
-            {
-                return false;
-            }
             if (Condition == null)
             {
                 return false;
