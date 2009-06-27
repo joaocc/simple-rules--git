@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64FFE5FB-DA0F-484E-B57A-429D54F3BA6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleRules.UnitTests</RootNamespace>
+    <AssemblyName>SimpleRules.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.6.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLibs\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Check_for_incomplete_rule.cs" />
+    <Compile Include="Can_evaluate_an_enumerable.cs" />
+    <Compile Include="Messages_are_not_duplicated.cs" />
+    <Compile Include="Model\HR\Employee.cs" />
+    <Compile Include="Model\HR\EmployeeStatus.cs" />
+    <Compile Include="Model\HR\PayType.cs" />
+    <Compile Include="When_true_action_is_missing.cs" />
+    <Compile Include="Add_returns_a_rule.cs" />
+    <Compile Include="When_returns_a_when_statement.cs" />
+    <Compile Include="With_incomplete_rule.cs" />
+    <Compile Include="Model\OrderEntry\Product.cs" />
+    <Compile Include="With_and_case.cs" />
+    <Compile Include="With_else_case.cs" />
+    <Compile Include="When_a_rule_is_removed_which_doesnt_exist.cs" />
+    <Compile Include="With_multiple_rules.cs" />
+    <Compile Include="When_a_rule_is_removed.cs" />
+    <Compile Include="When_rule_has_two_or_expressions.cs" />
+    <Compile Include="Model\OrderEntry\Order.cs" />
+    <Compile Include="Model\OrderEntry\OrderItem.cs" />
+    <Compile Include="Model\OrderEntry\OrderStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="When_rule_has_one_or_expression.cs" />
+    <Compile Include="When_rule_has_one_condition_and_one_action.cs" />
+    <Compile Include="RulesTestSpecs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleRules.Testing.Core\SimpleRules.Testing.Core.csproj">
+      <Project>{759A5591-286F-4A7F-8894-1C978DA05A2B}</Project>
+      <Name>SimpleRules.Testing.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleRules\SimpleRules.csproj">
+      <Project>{BD3E6BAF-B435-426E-8993-2E273096B256}</Project>
+      <Name>SimpleRules</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
