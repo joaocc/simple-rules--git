@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
 using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
-using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RuleTests
 {
-    public class When_a_rule_is_removed : TestContext<RulesTestSpecs>
+    public class With_incomplete_rule : TestContext<RuleSpecs>
     {
         const string RULE_MESSAGE = "bogus rule #1";
 
@@ -14,14 +13,12 @@ namespace SimpleRules.UnitTests
             Specs.InitializeInstance();
 
             Specs.Instance
-                .Add(RULE_MESSAGE)
-                    .When(o => o.Number.Length != 10)
-                    .Then(o => o.Status = OrderStatus.OnHold);
+                .Add(RULE_MESSAGE);
         }
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.Instance.Remove(RULE_MESSAGE);
+            Specs.Instance.Evaluate(Specs.Order);
         }
 
         [Test]

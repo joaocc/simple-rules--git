@@ -5,10 +5,10 @@ using NUnit.Framework.SyntaxHelpers;
 using System.Collections.Generic;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RuleTests
 {
     [TestFixture]
-    public class With_and_case : TestContext<RulesTestSpecs>
+    public class With_and_case : TestContext<RuleSpecs>
     {
         const string RULE_MESSAGE = "You must order 10 or more of Product A.";
 

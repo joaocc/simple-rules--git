@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using SimpleRules.UnitTests.Model.OrderEntry;
 using System;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
-    public class When_message_is_null : TestContext<RulesTestSpecs>
+    public class When_message_is_null : TestContext<RulesListSpecs>
     {
         IEnumerable<Rule<Order>> Rules { get; set; }
         Rule<Order> Rule { get; set; }

@@ -2,9 +2,9 @@
 using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RuleTests
 {
-    public class When_true_action_is_missing : TestContext<RulesTestSpecs>
+    public class When_true_action_is_missing : TestContext<RuleSpecs>
     {
         const string RULE_MESSAGE = "bogus rule #1";
 

@@ -10,7 +10,7 @@ namespace SimpleRules
 
         public WhenStatement<T> When(Expression<Func<T, bool>> expression)
         {
-            Condition = new WhenStatement<T> { ConditionExpression = expression };
+            Condition = new WhenStatement<T>(expression);
             return Condition;
         }
 

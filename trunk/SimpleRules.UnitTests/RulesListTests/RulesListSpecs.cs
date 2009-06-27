@@ -1,16 +1,14 @@
 ﻿using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
-    public class RulesTestSpecs
+    public class RulesListSpecs
     {
         public RulesList<Order> Instance { get; set; }
 
         public Order Order { get; set; }
 
-        public Rule<Order> ActualRule { get; set; }
-
-        public RulesTestSpecs()
+        public RulesListSpecs()
         {
             Order = new Order();
         }

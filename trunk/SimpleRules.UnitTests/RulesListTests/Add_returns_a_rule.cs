@@ -1,12 +1,13 @@
 ﻿using NUnit.Framework;
 using SimpleRules.Testing.Core;
+using SimpleRules.UnitTests.Model;
 using NUnit.Framework.SyntaxHelpers;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
     [TestFixture]
-    public class When_returns_a_when_statement : TestContext<RulesTestSpecs>
+    public class Add_returns_a_rule : TestContext<RulesListSpecs>
     {
         object Value { get; set; }
 
@@ -17,15 +18,13 @@ namespace SimpleRules.UnitTests
 
         protected override void ExecuteMethodUnderTest()
         {
-            Value = Specs.Instance
-                .Add("Some random rule")
-                .When(o => o.Number == "1");
+            Value = Specs.Instance.Add("Some random rule");
         }
 
         [Test]
         public void Rule_is_correct_type()
         {
-            Assert.That(Value, Is.InstanceOfType(typeof(WhenStatement<Order>)));
+            Assert.That(Value, Is.InstanceOfType(typeof(Rule<Order>)));
         }
     }
 }

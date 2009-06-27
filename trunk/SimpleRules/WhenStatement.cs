@@ -10,6 +10,11 @@ namespace SimpleRules
         internal Action<T> TrueAction { get; set; }
         internal Action<T> FalseAction { get; set; }
 
+        internal WhenStatement(Expression<Func<T,bool>> condition)
+        {
+            ConditionExpression = condition;
+        }
+
         public WhenStatement<T> Or(Expression<Func<T, bool>> expression)
         {
             var expr1 = Expression.Lambda<Func<T, bool>>(

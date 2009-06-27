@@ -4,10 +4,10 @@ using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
-namespace SimpleRules.UnitTests
+namespace SimpleRules.UnitTests.RulesListTests
 {
     [TestFixture]
-    public class With_multiple_rules : TestContext<RulesTestSpecs>
+    public class With_multiple_rules : TestContext<RulesListSpecs>
     {
         const string RULE1_MESSAGE = "Order number must be 10 charactes long.";
         const string RULE2_MESSAGE = "Order must contain at least one item.";
