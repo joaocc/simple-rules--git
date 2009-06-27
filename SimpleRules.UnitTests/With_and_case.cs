@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using SimpleRules.Testing.Core;
-using SimpleRules.UnitTests.Model;
 using NUnit.Framework.SyntaxHelpers;
 using System.Collections.Generic;
 using SimpleRules.UnitTests.Model.OrderEntry;

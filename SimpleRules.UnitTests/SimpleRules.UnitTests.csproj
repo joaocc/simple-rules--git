@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Check_for_incomplete_rule.cs" />
-    <Compile Include="Can_evaluate_an_enumerable.cs" />
+    <Compile Include="When_message_is_null.cs" />
     <Compile Include="Messages_are_not_duplicated.cs" />
     <Compile Include="Model\HR\Employee.cs" />
     <Compile Include="Model\HR\EmployeeStatus.cs" />

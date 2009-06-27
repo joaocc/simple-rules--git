@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using SimpleRules.Testing.Core;
-using SimpleRules.UnitTests.Model;
 using NUnit.Framework.SyntaxHelpers;
 using SimpleRules.UnitTests.Model.OrderEntry;
 
