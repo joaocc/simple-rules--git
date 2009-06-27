@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System;
 
 namespace SimpleRules
 {
@@ -21,6 +23,10 @@ namespace SimpleRules
 
         public Rule<T> Add(string message)
         {
+            if (message == null)
+            {
+                throw new ArgumentException("Parameter: message is a required.");
+            }
             var newRule = new Rule<T> { Message = message };
             _rules.Add(message, newRule);
             return newRule;
