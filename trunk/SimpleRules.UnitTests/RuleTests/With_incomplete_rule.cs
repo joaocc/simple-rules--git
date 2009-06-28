@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using SimpleRules.Testing.Core;
 using NUnit.Framework.SyntaxHelpers;
+using SimpleRules.UnitTests.Model.OrderEntry;
 
 namespace SimpleRules.UnitTests.RuleTests
 {
@@ -10,21 +11,21 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void SetupState()
         {
-            Specs.InitializeInstance();
+            Order.Rules.Clear();
 
-            Specs.Instance
+            Order.Rules
                 .Add(RULE_MESSAGE);
         }
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.Instance.Evaluate(Specs.Order);
+            Order.Rules.Evaluate(Specs.Order);
         }
 
         [Test]
         public void No_rules_exist()
         {
-            Assert.That(Specs.Instance.Count(), Is.EqualTo(0));
+            Assert.That(Order.Rules.Count(), Is.EqualTo(0));
         }
     }
 }

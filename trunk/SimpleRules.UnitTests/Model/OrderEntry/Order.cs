@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SimpleRules.UnitTests.Model.OrderEntry
 {
-    public class Order
+    public partial class Order
     {
         public string Number { get; set; }
 
@@ -18,14 +18,14 @@ namespace SimpleRules.UnitTests.Model.OrderEntry
             Items = new List<OrderItem>();
         }
 
-        public bool ContainsItem(Func<OrderItem, bool> condition)
+        public bool ContainsItem(Func<OrderItem, bool> match)
         {
-            return Items.Any(condition);
+            return Items.Any(match);
         }
 
-        public decimal SumItemsBy(Func<OrderItem, bool> condition)
+        public decimal SumItemQuantityWhere(Func<OrderItem, bool> match)
         {
-            return Items.Where(condition).Sum(i => i.Quantity);
+            return Items.Where(match).Sum(i => i.Quantity);
         }
     }
 }

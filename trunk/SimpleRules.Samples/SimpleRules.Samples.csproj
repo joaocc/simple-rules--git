@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="MethodGroups\Sample1.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Employee.dsl.cs" />
     <Compile Include="Model\EmployeeStatus.cs" />
     <Compile Include="Model\PayType.cs" />
     <Compile Include="Program.cs" />

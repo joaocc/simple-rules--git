@@ -10,14 +10,9 @@ namespace SimpleRules.UnitTests.RuleTests
     {
         object Value { get; set; }
 
-        protected override void SetupState()
-        {
-            Specs.InitializeInstance();
-        }
-
         protected override void ExecuteMethodUnderTest()
         {
-            Value = Specs.Instance
+            Value = Order.Rules
                 .Add("Some random rule")
                 .When(o => o.Number == "1");
         }
