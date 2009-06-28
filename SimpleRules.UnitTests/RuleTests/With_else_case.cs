@@ -13,12 +13,12 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void SetupState()
         {
-            Specs.InitializeInstance();
+            Order.Rules.Clear();
 
             Specs.Order.Status = OrderStatus.New;
             Specs.Order.Number = "1234567890";
 
-            Specs.Instance
+            Order.Rules
                 .Add(RULE_MESSAGE)
                     .When(o => o.Number.Length != 10)
                     .Then(o => o.Status = OrderStatus.OnHold)
@@ -27,13 +27,13 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.Instance.Evaluate(Specs.Order);
+            Order.Rules.Evaluate(Specs.Order);
         }
 
         [Test]
         public void There_are_no_messages()
         {
-            Assert.That(Specs.Instance.Messages.Count(), Is.EqualTo(0));
+            Assert.That(Order.Rules.Messages.Count(), Is.EqualTo(0));
         }
 
         [Test]

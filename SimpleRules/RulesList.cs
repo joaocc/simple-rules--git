@@ -46,6 +46,12 @@ namespace SimpleRules
             return _rules.Count();
         }
 
+        public void Clear()
+        {
+            _rules.Clear();
+            _messages.Clear();
+        }
+
         public void Evaluate(T item)
         {
             RemoveIncompleteRules();

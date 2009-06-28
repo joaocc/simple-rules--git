@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\HR\Employee.dsl.cs" />
+    <Compile Include="Model\OrderEntry\Order.dsl.cs" />
     <Compile Include="RulesListTests\Check_for_incomplete_rule.cs" />
     <Compile Include="RulesListTests\RulesListSpecs.cs" />
     <Compile Include="RulesListTests\When_message_is_null.cs" />

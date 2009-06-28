@@ -27,10 +27,15 @@ namespace SimpleRules.Samples.MethodGroups
             ReportResults("Before:");
 
             Employee.Rules
-                .Add( "Terminate all hourly employees" )
-                .When( Employee.is_hourly )
-                .And( Employee.is_active )
-                .Then( Employee.terminate );
+                .Add("Terminate all hourly employees")
+                .When(Employee.is_hourly)
+                .And(Employee.is_active)
+                .Then(Employee.terminate);
+
+            Employee.Rules
+                .Add("When employee is terminated send and email")
+                .When(Employee.is_terminated)
+                .And(e => e.TerminationDate < 10.minutes_ago());
 
             foreach (var employee in Employees)
             {

@@ -13,9 +13,7 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void SetupState()
         {
-            Specs.InitializeInstance();
-
-            Specs.Instance
+            Order.Rules
                 .Add(RULE_MESSAGE)
                     .When(o => o.Items.Count() == 0)
                     .Then(o => o.Status = OrderStatus.OnHold);
@@ -23,25 +21,25 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.Instance.Evaluate(Specs.Order);
+            Order.Rules.Evaluate(Specs.Order);
         }
 
         [Test]
         public void Rule_list_contains_rule()
         {
-            Assert.That(Specs.Instance.ContainsRule(RULE_MESSAGE));
+            Assert.That(Order.Rules.ContainsRule(RULE_MESSAGE));
         }
 
         [Test]
         public void One_message_exists()
         {
-            Assert.That(Specs.Instance.Messages.Count(), Is.EqualTo(1));
+            Assert.That(Order.Rules.Messages.Count(), Is.EqualTo(1));
         }
 
         [Test]
         public void Message_is_correct()
         {
-            Assert.That(Specs.Instance.Messages.All(m => m == RULE_MESSAGE));
+            Assert.That(Order.Rules.Messages.All(m => m == RULE_MESSAGE));
         }
 
         [Test]

@@ -14,7 +14,7 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void SetupState()
         {
-            Specs.InitializeInstance();
+            Order.Rules.Clear();
 
             Specs.Order = new Order
             {
@@ -27,28 +27,28 @@ namespace SimpleRules.UnitTests.RuleTests
                 }
             };
 
-            Specs.Instance
+            Order.Rules
                 .Add(RULE_MESSAGE)
                     .When(o => o.ContainsItem(i => i.Product.Name == "Product A"))
-                    .And(o => o.SumItemsBy(i => i.Product.Name == "Product A") < 10m)
+                    .And(o => o.SumItemQuantityWhere(i => i.Product.Name == "Product A") < 10m)
                     .Then(o => o.Status = OrderStatus.OnHold);
         }
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.Instance.Evaluate(Specs.Order);
+            Order.Rules.Evaluate(Specs.Order);
         }
 
         [Test]
         public void There_is_one_message()
         {
-            Assert.That(Specs.Instance.Messages.Count(), Is.EqualTo(1));
+            Assert.That(Order.Rules.Messages.Count(), Is.EqualTo(1));
         }
 
         [Test]
         public void The_message_is_correct()
         {
-            Assert.That(Specs.Instance.Messages.First(), Is.EqualTo(RULE_MESSAGE));
+            Assert.That(Order.Rules.Messages.First(), Is.EqualTo(RULE_MESSAGE));
         }
 
         [Test]

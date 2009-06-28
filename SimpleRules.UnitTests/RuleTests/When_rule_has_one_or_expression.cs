@@ -13,9 +13,9 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void SetupState()
         {
-            Specs.InitializeInstance();
+            Order.Rules.Clear();
 
-            Specs.Instance
+            Order.Rules
                 .Add(RULE_MESSAGE)
                     .When(o => o.Number.Length != 10)
                         .Or(o => o.Number.Contains(' '))
@@ -24,19 +24,20 @@ namespace SimpleRules.UnitTests.RuleTests
 
         protected override void ExecuteMethodUnderTest()
         {
-            Specs.RunRules("1234 67890", "123456789");
+            Specs.Order.Number = "1234 67890";
+            Order.Rules.Evaluate(Specs.Order);
         }
 
         [Test]
         public void Two_messages_exist()
         {
-            Assert.That(Specs.Instance.Messages.Count(), Is.EqualTo(1));
+            Assert.That(Order.Rules.Messages.Count(), Is.EqualTo(1));
         }
 
         [Test]
         public void All_messages_are_correct()
         {
-            Assert.That(Specs.Instance.Messages.First(), Is.EqualTo(RULE_MESSAGE));
+            Assert.That(Order.Rules.Messages.First(), Is.EqualTo(RULE_MESSAGE));
         }
 
         [Test]
