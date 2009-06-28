@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using SimpleRules.Samples.Model;
 
 namespace SimpleRules.Samples.MethodGroups
